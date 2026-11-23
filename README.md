@@ -1,16 +1,55 @@
-# React + Vite
+# First Tailwind React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A minimal React + Vite starter project styled with [Tailwind CSS](https://tailwindcss.com/).
+It includes Tailwind's base/component/utility layers, a configured content purge path,
+and a small demo UI so you can confirm utility classes are working.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- Vite 8
+- Tailwind CSS 3.4 (with PostCSS + Autoprefixer)
+- JavaScript (JSX)
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the Oxlint configuration
+Open the local URL printed by Vite (usually http://localhost:5173).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Other Commands
+
+```bash
+npm run build     # production build into dist/
+npm run preview   # preview the production build
+npm run lint      # run Oxlint
+```
+
+## Tailwind Setup
+
+- `tailwind.config.js` scans `./index.html` and `./src/**/*.{js,ts,jsx,tsx}` so unused
+  utility classes are removed from the production CSS.
+- `postcss.config.js` wires up Tailwind and Autoprefixer.
+- `src/index.css` contains the three Tailwind directives:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+## Project Structure
+
+```
+├── index.html
+├── postcss.config.js
+├── tailwind.config.js
+├── vite.config.js
+└── src
+    ├── App.jsx       # demo UI built with Tailwind utility classes
+    ├── index.css     # Tailwind directives
+    └── main.jsx      # React entry point
+```
